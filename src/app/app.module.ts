@@ -3,10 +3,15 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import {FormsModule} from '@angular/forms';
+import { AvtcompComponent } from './avtcomp/avtcomp.component';
+import { NuwComponent } from './nuwComp/nuw';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AvtcompComponent,
+    NuwComponent,
   ],
   imports: [
     BrowserModule,
