@@ -24,4 +24,8 @@ per = 'любой текст или заголовок, или число, ил�
         console.log(event);
         this.pertext = event.target.value
     }
+
+    met() {
+        console.log('click');
+    }
 }

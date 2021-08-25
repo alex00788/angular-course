@@ -4,5 +4,7 @@
     <img [src]="img" alt="">
 </div>
 
-<input type="text" class="input" (input)="listening($event)" >
+<button class="button" (click)="met()"> ввод </button>
+
+<input type="text" class="input" (keyup.enter)="listening($event)" >
 <p> {{ pertext }}</p>
