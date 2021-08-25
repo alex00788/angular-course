@@ -1,13 +1,13 @@
-<button (click)="back = !back">переключатель</button>
+<button (click)="img = imgg">переключатель img</button>
+<button (click)="perem = !perem">переключатель text</button>
 
-<!--<div [ngStyle]="{-->
-<!--    width:'400px',-->
-<!--    height: '400px',-->
-<!--    border: '1px solid red',-->
-<!--    background: back ? 'red' : 'blue'-->
-<!--    }">-->
-<!--</div>-->
+<p *ngIf="perem; else nuwPer" class="red"> Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+<ng-template #nuwPer>
+    <p  class="blue"> Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+</ng-template>
 
-<p [ngClass]="{red: back, blue: !back }"
-    > Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit?
-</p>
+
+<img [src]="img" alt="" *ngIf="img; else perimg">
+<ng-template #perimg>
+    <img [src]="imgg" alt="">
+</ng-template>
