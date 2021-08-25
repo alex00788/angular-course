@@ -1,11 +1,23 @@
-17. ngIf  показать одно или другое...
+18 ngSwitch
+заводим в тс perem: any = folse
+в шаблоне button  котор по клику будет менять perem на противоположное(!) = !perem
+
+<button (click) = perem = !perem>
+<button (click)="perem = 111">
+<div [ngSwitch] ="perem">
+    <p *ngSwitchCase ="true" class = "red"> any text </p>
+    <p *ngSwitchCase ="false" class = "blue">  any text2222222 </p>
+    <p *ngSwitchDefault>    danger      </p>
+</div>
+
+17 ngIf  показать одно или другое...
 заводим перем в тс perem = folse
 в шаблоне button  котор по клику будет менять perem на противоположн !perem  тру или фолз
 <p  *ngIf =“perem; else novPerem“   class =“red“>
 <ng-template #novPerem >    внутрь этого контейнера ...то что нужно показать вместо perem
 </ng-template> это контейнер
 
-16. ngClass  ПЕРЕКЛЮЧАЕТ класс
+16 ngClass  ПЕРЕКЛЮЧАЕТ класс
 например в css заводим 2 стиля red и blue
 в tc переменную back
 в шаблоне прописываем например <p [ngClass]="{red: back, blue: !back }" текст </p>
