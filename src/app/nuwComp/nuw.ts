@@ -6,5 +6,5 @@ import {Component} from '@angular/core';
     styleUrls: ['nuw.scss']
 })
 export class NuwComponent {
-
+per = 'любой текст или заголовок, или число, или сумма чисел, или массив...... '
 }
