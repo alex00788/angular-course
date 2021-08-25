@@ -1,17 +1,10 @@
-<p> {{per}}</p>
+<button (click)="back = !back">переключатель</button>
 
-<div class="img">
-    <img [src]="img" alt="">
+<div [ngStyle]="{
+width:'400px',
+height: '400px',
+border: '1px solid red',
+background: back ? 'red' : 'blue'
+}">
+
 </div>
-
-<button class="button" (click)="met()"> ввод </button>
-
-<input type="text" class="input" (keyup.enter)="listening($event)" >
-<p> {{ pertext }}</p>
-
-
-
-<div class="">
-    <input type="text" class="input" [(ngModel)]="nuwPer">
-</div>
-<p> {{nuwPer}}</p>
