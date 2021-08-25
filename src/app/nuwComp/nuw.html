@@ -4,5 +4,5 @@
     <img [src]="img" alt="">
 </div>
 
-<input type="text" class="input">
-<p> {{ pertext}}</p>
+<input type="text" class="input" (input)="listening($event)" >
+<p> {{ pertext }}</p>
