@@ -1,13 +1,8 @@
-<button (click)="img = imgg">переключатель img</button>
-<button (click)="perem = !perem">переключатель text</button>
+<button (click)="perem = !perem">переключатель img</button>
+<button (click)="perem = 111">переключатель text</button>
 
-<p *ngIf="perem; else nuwPer" class="red"> Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
-<ng-template #nuwPer>
-    <p  class="blue"> Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
-</ng-template>
-
-
-<img [src]="img" alt="" *ngIf="img; else perimg">
-<ng-template #perimg>
-    <img [src]="imgg" alt="">
-</ng-template>
+<div [ngSwitch] ="perem">
+    <p *ngSwitchCase ="true" class = "red"> any text </p>
+    <p *ngSwitchCase ="false" class = "blue">  any text2222222 </p>
+    <p *ngSwitchDefault>    danger      </p>
+</div>
