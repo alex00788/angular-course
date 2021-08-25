@@ -10,6 +10,7 @@ per = 'любой текст или заголовок, или число, ил�
 
     img = 'https://pbs.twimg.com/media/C2KFY4tWQAIyrRa.jpg'
     pertext = 'выводим'
+    nuwPer= 'inicil'
 
     constructor() {
     // setInterval(() => {
