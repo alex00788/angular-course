@@ -1,24 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {IntSpis } from '../../app.component';
 
-export interface Spis {
-  surname: string
-  name: string
-
-}
 
 @Component({
-  selector: 'app-spis',
-  templateUrl: './spis.component.html',
-  styleUrls: ['./spis.component.scss']
+    selector: 'app-spis',
+    templateUrl: './spis.component.html',
+    styleUrls: ['./spis.component.scss']
 })
-export class SpisComponent implements OnInit {
+export class SpisComponent implements OnInit{
 
-  constructor() { }
-massiv: Spis [] = [
-  {surname: 'Фоничев', name: 'Александр'},
-  {surname: 'Popov', name: 'Александр'}
-]
-  ngOnInit() {
-  }
+    @Input() perSpis: IntSpis
+
+    constructor() {
+    }
+
+    ngOnInit() {
+}
 
 }
