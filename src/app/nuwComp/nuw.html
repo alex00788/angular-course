@@ -1,8 +1,9 @@
-<button (click)="perem = !perem">переключатель img</button>
-<button (click)="perem = 111">переключатель text</button>
 
-<div [ngSwitch] ="perem">
-    <p *ngSwitchCase ="true" class = "red"> any text </p>
-    <p *ngSwitchCase ="false" class = "blue">  any text2222222 </p>
-    <p *ngSwitchDefault>    danger      </p>
-</div>
+<ul>
+    <li *ngFor="let np of perem">
+    <p> {{np.fam}}</p>
+    <p> {{np.name}}</p>
+    <p> {{np.otch}}</p>
+    <p> {{np.vozrast}}</p>
+    </li>
+</ul>
