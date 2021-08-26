@@ -2,7 +2,7 @@
 
 <hr>
 
-<app-spis *ngFor="let perfor of massiv" [perSpis]= "perfor">
+<app-spis *ngFor="let perfor of massiv" [perSpis]= "perfor" (perOutRem)="delite($event)">
     <small *ngIf="perfor.name.length > 5; else short "> Длинное имя </small>
     <ng-template #short>
      <small> Имя короткое </small>

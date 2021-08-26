@@ -1,3 +1,6 @@
+27 см после 23
+Жизненный цикл (lifecycle hooks)  что делают подробно описанно на сайте ангуляр
+
 26 Доступ до контента например div#per с помощью декоратора
  @ContentChild(здесь пишим без # 'per') perElRef: ElementRef
 
@@ -25,7 +28,13 @@
 и обращаясь к пер output   отправляем перем созданую в методе const perAddm
 принимаем ее в шаблоне app compon  добавл в () = тут нов метод котор создаем в тс ап комп
 
-
+27  ngOnDestroy удоление компанента
+в spis компонент тс добавляем ngOnDestroy(): void   имплементируясь от него
+создаем кнопку для удаления в шаблоне
+ts созд @Output perOutRem = new Event Emitter<any>
+и в методе this perOutRem.emit (this.perSpis.surname) отправляем...
+принимаем в шаблоне главн комп  (perOutRem) = " delite($event)"  создаем мет в тс главн ап к
+this.massiv = this.massiv.filter(perfor => perfor.surname !== surname )
 
 22 Передаем параметры
 перенес массив в app ts компанент
