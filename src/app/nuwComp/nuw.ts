@@ -7,7 +7,7 @@ import {Component} from '@angular/core';
 })
 export class NuwComponent {
 
-    perem: any = false
+    perem = [1, 4, 5, 7, 3, 2]
 
 
 }
