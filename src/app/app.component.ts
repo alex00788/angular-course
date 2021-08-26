@@ -19,4 +19,8 @@ export class AppComponent {
   metisform(perAddm: IntSpis) {
     this.massiv.unshift(perAddm)
   }
+
+  delite(surname: string) {
+    this.massiv = this.massiv.filter(perfor => perfor.surname !== surname )
+  }
 }
