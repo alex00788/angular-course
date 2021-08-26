@@ -15,4 +15,8 @@ export class AppComponent {
     {surname: 'Фоничев', name: 'Александр'},
     {surname: 'Popov', name: 'Александр'}
   ]
+
+  metisform(perAddm: IntSpis) {
+    this.massiv.unshift(perAddm)
+  }
 }
