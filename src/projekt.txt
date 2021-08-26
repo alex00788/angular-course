@@ -1,3 +1,14 @@
+25 Передача в компонент
+например указыв длинное или короткое имя
+<app-spis *ngFor="let per of massiv" [nuwPer]="per">
+    <small *ngIf="per.name.length > 10; else short"> длинное Имя </small>
+    <ng-template #short>
+        <small > короткое имя</small>
+    </ng-template>
+</app-spis>
+<ng-content></ng-content> туда где будем показывать
+
+
 24 Доступ до html элементов  создаем кнопку с фокусом на фамилию..
  ссылку в элемент котор выделяем с любм именем  #имя
  добавить декаратор @ViewChild(“имя“ без# ) anyPerem: ElementRef
