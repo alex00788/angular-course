@@ -1,5 +1,9 @@
-<ul >
-    <li *ngFor="let nper of perem; let idx= index">
-        {{idx}} <strong> {{nper}}</strong>
+
+<ul>
+    <li *ngFor="let np of perem">
+    <p> {{np.fam}}</p>
+    <p> {{np.name}}</p>
+    <p> {{np.otch}}</p>
+    <p> {{np.vozrast}}</p>
     </li>
 </ul>

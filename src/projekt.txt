@@ -2,6 +2,8 @@
 Заводим в тс perem = масиив [1,3,12...] из чисел строк и тп...
   в щаблоне *ngFor =“let NuwPerem of perem; let idx = index“  нумерует что есть с 0
      {{idx))    {{NuwPerem}}
+чтоб вывести объект
+per = [{f: '', name: ''}] <li *ngFor let Np of per > <p>{{Np.f}} </p><p>{{Np.name}}
 
 
 18 ngSwitch
