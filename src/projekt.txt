@@ -1,3 +1,6 @@
+26 Доступ до контента например div#per с помощью декоратора
+ @ContentChild(здесь пишим без # 'per') perElRef: ElementRef
+
 25 Передача в компонент
 например указыв длинное или короткое имя
 <app-spis *ngFor="let per of massiv" [nuwPer]="per">
