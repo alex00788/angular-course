@@ -7,12 +7,6 @@ import {Component} from '@angular/core';
 })
 export class NuwComponent {
 
-    perem = [
-        {fam: 'фон ', name: 'алекс' , otch: 'ник', vozrast: 33},
-        {fam: 'фон ', name: 'алекс' , otch: 'ник', vozrast: 30},
-        {fam: 'фон ', name: 'алекс' , otch: 'ник', vozrast: 28},
-        {fam: 'фон ', name: 'алекс' , otch: 'ник', vozrast: 25}
-    ]
-
+    perem : Date = new Date()
 
 }

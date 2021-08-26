@@ -1,9 +1,1 @@
-
-<ul>
-    <li *ngFor="let np of perem">
-    <p> {{np.fam}}</p>
-    <p> {{np.name}}</p>
-    <p> {{np.otch}}</p>
-    <p> {{np.vozrast}}</p>
-    </li>
-</ul>
+<p>{{perem | date : 'long' | uppercase | lowercase}}</p>
