@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, ElementRef, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
 import {IntSpis} from '../../app.component';
 
 @Component({
@@ -9,6 +9,8 @@ import {IntSpis} from '../../app.component';
 export class FormComponent implements OnInit {
 
   @Output() perOut: EventEmitter<IntSpis> = new EventEmitter<IntSpis>()
+  @ViewChild('foc') perFoc: ElementRef
+
   surname = ''
   name = ''
 
@@ -26,5 +28,9 @@ export class FormComponent implements OnInit {
       this.perOut.emit(perAddm)
       this.surname = this.name = ''
     }
+  }
+
+  focuss() {
+    this.perFoc.nativeElement.focus()
   }
 }
