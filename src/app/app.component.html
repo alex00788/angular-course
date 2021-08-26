@@ -1,3 +1,10 @@
 <app-form (perOut)="metisform($event)"></app-form>
+
 <hr>
-<app-spis *ngFor="let perfor of massiv" [perSpis]= "perfor"></app-spis>
+
+<app-spis *ngFor="let perfor of massiv" [perSpis]= "perfor">
+    <small *ngIf="perfor.name.length > 5; else short "> Длинное имя </small>
+    <ng-template #short>
+     <small> Имя короткое </small>
+    </ng-template>
+</app-spis>
