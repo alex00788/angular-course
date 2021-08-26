@@ -3,15 +3,15 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import {FormsModule} from '@angular/forms';
-import { AvtcompComponent } from './avtcomp/avtcomp.component';
-import { NuwComponent } from './nuwComp/nuw';
+import { FormComponent } from './src/form/form.component';
+import { SpisComponent } from './src/spis/spis.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    AvtcompComponent,
-    NuwComponent,
+    FormComponent,
+    SpisComponent
   ],
   imports: [
     BrowserModule,
