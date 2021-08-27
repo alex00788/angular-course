@@ -1,3 +1,5 @@
+29 Стили с ViewEncapsulation с помощью добавления в декоратор можно глабально менять стили
+
 28 Change Detection Strategy   меняем имя
 ngOnInit(): void {
     setTimeout(() => {
