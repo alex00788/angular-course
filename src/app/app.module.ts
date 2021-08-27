@@ -3,15 +3,12 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import {FormsModule} from '@angular/forms';
-import { FormComponent } from './src/form/form.component';
-import { SpisComponent } from './src/spis/spis.component';
-
+import {StyleDir} from './Style.dir';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FormComponent,
-    SpisComponent
+    StyleDir
   ],
   imports: [
     BrowserModule,
