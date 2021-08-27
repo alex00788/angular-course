@@ -3,7 +3,10 @@
 в тс дир   @Input('appStyle') color: string = 'blue'
            @Input (selector)  или сюда св во = по умолчан
 далее в @ Hostlictner  прописываем стиль и this.св-во
-
+меняем цвет и жирность
+      Через пробел добавляем св во fontWeight="bold"
+      в тс  @Input() fontWeight = 'normal'
+      this.per2.setStyle(this.per1.nativeElement, 'fontWeight', this.fontWeight)
 
 32 добавляем события   @HostListener-
      это декаратор куда мы передаем название события котор хотим слушать
