@@ -1,11 +1,12 @@
-import {Component, ElementRef, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
-import {IntSpis } from '../../app.component';
+import {ChangeDetectionStrategy, Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
+import {IntSpis} from '../../app.component';
 
 
 @Component({
     selector: 'app-spis',
     templateUrl: './spis.component.html',
-    styleUrls: ['./spis.component.scss']
+    styleUrls: ['./spis.component.scss'],
+    changeDetection: ChangeDetectionStrategy.Default
 })
 export class SpisComponent implements OnInit, OnDestroy {
 

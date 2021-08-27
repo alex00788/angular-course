@@ -1,4 +1,9 @@
-28 Change Detection Strategy
+28 Change Detection Strategy   меняем имя
+ngOnInit(): void {
+    setTimeout(() => {
+      this.massiv[0].name = 'zam'
+    }, 3000)
+  }
 
 27 см после 23
 Жизненный цикл (lifecycle hooks)  что делают подробно описанно на сайте ангуляр
