@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 export interface IntSpis {
   surname: string
@@ -10,11 +10,17 @@ export interface IntSpis {
   styleUrls: ['./app.component.scss']
 })
 
-export class AppComponent {
+export class AppComponent implements OnInit {
   massiv: IntSpis [] = [
     {surname: 'Фоничев', name: 'Александр'},
     {surname: 'Popov', name: 'Александр'}
   ]
+
+  ngOnInit(): void {
+    setTimeout(() => {
+      this.massiv[0].name = 'zam'
+    }, 3000)
+  }
 
   metisform(perAddm: IntSpis) {
     this.massiv.unshift(perAddm)
