@@ -1,3 +1,18 @@
+32 добавляем события   @HostListener-
+     это декаратор куда мы передаем название события котор хотим слушать
+     например клик  и вотор параметр [„$event“]
+     с методом  metod: и типом Event
+@HostListener('click', ['$event.target']) metod(tip: Event) {
+   при клике в консоле можно увидеть маус евент с полями как в нативном евенте…
+   если Добав к $event.  target то получем информ в консое с описанием параграфа и стилей
+   this.per2.setStyle(this.per.nativeElement, 'color', 'blue')
+Меняем цвет при наведении мыши
+   @HostListener (“mouseenter“) metod(){this.per2.setStyle(per2.nativElement,
+   вторым указ название стиля котор будем менять , 'color' , 3ee на какое значение меняем
+@HostListener (“mouseleave“) metodleave(){
+   this.per2.setStyle(per2.nativElement, 'color', null
+}
+
 31 Получение доступа до элемента
 нужно реализовать конструктор и в него иньекцию...
 создаем per и инжектируем нов перемен типа элемент реф...
