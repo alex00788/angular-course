@@ -5,7 +5,6 @@ import {Directive, ElementRef, HostListener, Input, Renderer2} from '@angular/co
 })
 export class StyleDir {
     @Input('appStyle') color: string = 'blue'
-    @Input() fontWeight = 'normal'
     @Input() dSt : {border?: string, fontWeight?: string, borderRadius?: string}
 
 
@@ -14,7 +13,6 @@ export class StyleDir {
     }
     @HostListener('mouseenter') onEnter () {
         this.per2.setStyle(this.per1.nativeElement, 'color', this.color)
-        this.per2.setStyle(this.per1.nativeElement, 'fontWeight', this.fontWeight)
         this.per2.setStyle(this.per1.nativeElement, 'fontWeight', this.dSt)
         this.per2.setStyle(this.per1.nativeElement, 'border', this.dSt.border)
         this.per2.setStyle(this.per1.nativeElement, 'borderRadius', this.dSt.borderRadius)
