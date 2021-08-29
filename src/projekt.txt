@@ -1,4 +1,6 @@
-34
+34 декаратор @HostBinding('style color') perColor = null    упращает позволяет менять любой стиль
+в @HostListener('mouseenter') onEnter () { this.perColor = this.color}
+
 
 33 Передача параметров в дерективу
 в шаблоне <p appStyle = "red">Lorem</p>   через пробел следущее св во
