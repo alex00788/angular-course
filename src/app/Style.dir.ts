@@ -20,7 +20,6 @@ export class StyleDir {
     @HostListener('mouseleave') onLeave () {
         this.per2.setStyle(this.per1.nativeElement, 'color', 'blue')
         this.per2.setStyle(this.per1.nativeElement, 'fontWeight', null)
-        this.per2.setStyle(this.per1.nativeElement, 'fontWeight', null)
         this.per2.setStyle(this.per1.nativeElement, 'border', null)
         this.per2.setStyle(this.per1.nativeElement, 'borderRadius', null)
     }
