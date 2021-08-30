@@ -28,10 +28,11 @@
 
 
 33 Передача параметров в дерективу
-в шаблоне <p appStyle = "red">Lorem</p>   через пробел следущее св во
+в шаблоне <p appStyle = "red" Fontsize="50px">Lorem</p>   через пробел следущее св во
 в тс дир   @Input('appStyle') color: string = 'blue'
-           @Input (selector)  или сюда св во = по умолчан
+           @Input (selector)  или сюда Fontsize = '15px'
 далее в @ Hostlictner  прописываем стиль и this.св-во
+
 меняем цвет и жирность
       Через пробел добавляем св во fontWeight="bold"
       в тс  @Input() fontWeight = 'normal'
@@ -45,7 +46,10 @@
      @Input () perin: сИнтерфейсом {border?: sting, fontweight?: string, borderRadius?: string}
       теперь передаем их в шаблон
       [perin]=“{border: '1px solid blue', borderRadius: '5px' }“
-                       теперь мы имеем к нему доступ через  this.   В @Hostlistner
+                       теперь мы имеем к нему доступ через  this.
+В @Hostlistner{
+this.per2.setStyle(this.per1.nativeElement, 'border', this.per.border);}
+
 
 32 добавляем события   @HostListener-
      это декаратор куда мы передаем название события котор хотим слушать
