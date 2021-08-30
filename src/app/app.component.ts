@@ -9,5 +9,6 @@ import {Component, OnInit} from '@angular/core';
 export class AppComponent  {
 
   e: number = Math.E
+  per = 'hellow bro'
 
 }
