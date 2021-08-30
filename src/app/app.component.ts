@@ -7,5 +7,7 @@ import {Component, OnInit} from '@angular/core';
 })
 
 export class AppComponent  {
-flag = true
+
+  e: number = Math.E
+
 }
