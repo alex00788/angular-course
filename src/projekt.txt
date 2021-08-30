@@ -1,3 +1,12 @@
+41 создание своего пайпа
+аналогично как раньше экспорт класс декаратор пайп с обязат полем name: 'mult' регистрац в модуле
+далее создаем интерфейс имплеминтируясь от
+export class MBPipe implements PipeTransform {
+transform(numm: number, par: number): number {
+return  numm * par
+в шаблоне выводим <p>{{ 10 | mult }}</p>
+
+
 40 еще пайпы
 currency   приводит к валюте
 percent    приводит %  тут применимы параметры свойственые наберу
