@@ -12,6 +12,7 @@
                                                                   private perView: ViewContainerRef)
 
 в шаблоне копирую логику и меняю  <div  class="wrap" *perAppNd ="!perFlag">
+//perAppNd равна названию селектора директивы и в @Input() тоже ставим ее
 Принимаю параметр @Input() set perAppNd (perCond: boolean) {
                       if (!perCond) {
                         this.perView.createEmbeddedView(this.perTem)
