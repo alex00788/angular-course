@@ -1,3 +1,28 @@
+35 Структурная директива меняет значение кода... на примере кнопки скрывающий текст
+в шаблоне заводим див с классом и задаем ему стили...
+в  тс компанента завел    perFlag = true ...
+в шаблоне написал         <div *ngIf = perFlag...
+создал кнопку по клику меняющ значен (click)="perFlag = !perFlag"
+
+как ангуляр перестраивает код... он обарачивает div в ng-template
+ указывает директиву *ngIf  как бандинг  <ng-template [ngIf]="flag">
+
+
+создал новую директиву с cli и в конструкторе завожу 2 перемен    private perTem: TemplateRef<any>,
+                                                                  private perView: ViewContainerRef)
+
+в шаблоне копирую логику и меняю  <div  class="wrap" *perAppNd ="!perFlag">
+Принимаю параметр @Input() set perAppNd (perCond: boolean) {
+                      if (!perCond) {
+                        this.perView.createEmbeddedView(this.perTem)
+                    //    показать
+                      } else {
+                      //  скрыть
+                        this.perView.clear()
+                      }
+                    }
+
+
 34 декаратор @HostBinding('style color') perColor = null    упращает позволяет менять любой стиль
 в @HostListener('mouseenter') onEnter () { this.perColor = this.color}
 
