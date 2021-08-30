@@ -3,14 +3,12 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import {FormsModule} from '@angular/forms';
-import {StyleDir} from './Style.dir';
-import { NdDirective } from './nd.directive';
+import {Ds} from './directivs/d.s';
 
 @NgModule({
   declarations: [
     AppComponent,
-    StyleDir,
-    NdDirective,
+    Ds
   ],
   imports: [
     BrowserModule,

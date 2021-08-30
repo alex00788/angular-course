@@ -71,7 +71,7 @@ constructor(private per: ElementRef,) {}
 теперь можно его использовать обращаясь к полю натив элемент
 per.nativElement.style.color = „red“
 
-чтоб код был более защищен … инжектируем private per2 с типом Rendorer2   thes per2.
+чтоб код был более защищен … инъектируем private per2 с типом Rendorer2   this per2.
 Смотрим методы какие есть
 this.per2.setStyle(this.per.nativeElement, 'color', 'blue')
 вторым указ название стиля котор будем менять , color ,
