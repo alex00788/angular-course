@@ -11,5 +11,5 @@ export class AppComponent  {
   e: number = Math.E
   per = 'hellow bro'
   date: Date = new Date()
-
+  per2 = 0.42
 }
