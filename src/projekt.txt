@@ -1,3 +1,15 @@
+48 Локальные сервесы с ng cli  ng g s name --skipTests
+убираем {providedIn: 'root'}
+повторим логику 46 урока
+  регистрирую ее не глобально а в компаненте после селектора
+    providers: [LocSService]     добавл еще одну переменную в
+    конструктор  private lokSServ: LocSService
+в шаблоне <h2> lok serv : {{ lokSServ.pole}} </h2>
+              <button class="btn" (click)="lokSServ.metod1()">+</button>
+              <button class="btn" (click)="lokSServ.metod2()">-</button>
+
+
+
 47 Декаратор     @Injectable()   лучше добавлять чтоб багов не было
 можно убрать из модуля но в декаратор добавляем
 @Injectable({  providedIn: 'root'}) тем самым добавляем в корневой модуль
