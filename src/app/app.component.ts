@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {NS} from './ servises/n.s';
 
 
 @Component({
@@ -8,5 +9,6 @@ import {Component} from '@angular/core';
 })
 
 export class AppComponent {
-
+  constructor(private perPS: NS) {
+  }
 }
