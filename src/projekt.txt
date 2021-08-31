@@ -1,3 +1,29 @@
+43 фильтрация списка
+в тс создал интерфейс массива с типом Spis
+описал массив ниже..в классе...
+вывел его в шаблон с помощью ngFor ...
+добавил <input type="text" [(ngModel)]="strPoisk" placeholder="Poisk">
+в тс завел strPoisk = ''
+создал пайп с cli  и отредактировал его
+    transform(perP: Spis[], strPoisk: string = ''): Spis [] {
+        if (!strPoisk.trim()) {
+          return perP
+        }
+        return perP.filter( newMas => {
+          return newMas.surname.toLocaleLowerCase().includes(strPoisk.toLocaleLowerCase())
+        });
+      }
+в шаблоне вставляем пайп с именем filterrr: strPoisk  котор принимает strPoisk
+
+поиск по имени и по фамилии добавляем в пайпе
+||
+   newMas.name.toLocaleLowerCase().includes(strPoisk.toLocaleLowerCase())
+
+
+
+42 с помощью ng g p name
+
+
 41 создание своего пайпа
 аналогично как раньше экспорт класс декаратор пайп с обязат полем name: 'mult' регистрац в модуле
 далее создаем интерфейс имплеминтируясь от

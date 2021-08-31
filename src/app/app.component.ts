@@ -1,5 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 
+export  interface Spis {
+  surname: string
+  name: string
+}
 @Component({
   selector: 'app-sky',
   templateUrl: './app.component.html',
@@ -8,8 +12,12 @@ import {Component, OnInit} from '@angular/core';
 
 export class AppComponent  {
 
-  e: number = Math.E
-  per = 'hellow bro'
-  date: Date = new Date()
-  per2 = 0.42
+  strPoisk: ''
+
+  masSpis: Spis [] = [
+    {surname: 'Петров', name: 'Иван'},
+    {surname: 'Акмеев', name: 'Кирил'},
+    {surname: 'Ивлиев', name: 'Вадим'},
+  ]
+
 }

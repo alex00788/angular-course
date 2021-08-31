@@ -1,11 +1,7 @@
-<p> Пайпы </p>
-<p>{{e | number:'3.2'}}</p>
-<p>{{per | uppercase | lowercase | titlecase| slice:1:2}}</p>
+<input type="text" [(ngModel)]="strPoisk" placeholder="Poisk">
 
-<p>{{date | date: 'fullDate'}}</p>
 
-<p>{{per2}}</p>
-<p>{{per2 | currency}}</p>
-<p>{{per2 | percent | json}}</p>
-
-<p>{{ 10 | mult}}</p>
+<div class="card" *ngFor="let perFor of masSpis | filterrr:strPoisk" >
+    {{perFor.surname}}
+    {{perFor.name}}
+</div>
