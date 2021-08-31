@@ -15,8 +15,11 @@
       }
 в шаблоне вставляем пайп с именем filterrr: strPoisk  котор принимает strPoisk
 
-поиск по имени и по фамилии
-в шаблоне завожу 2 кнопки котор при клике будут менять
+поиск по имени и по фамилии добавляем в пайпе
+||
+   newMas.name.toLocaleLowerCase().includes(strPoisk.toLocaleLowerCase())
+
+
 
 42 с помощью ng g p name
 
