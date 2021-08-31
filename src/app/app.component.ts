@@ -14,6 +14,5 @@ export class AppComponent {
   constructor(
       private perPS: NS,
       private lokSServ: LocSService
-  ) {
-  }
+  ) {}
 }
