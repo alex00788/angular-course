@@ -1,3 +1,26 @@
+45 пайп Async  работает с асинхронными данными
+        например вывод текста через заданное время
+
+в тс заводим per:Promise<string> = new Promise<string> (
+перем с типом Promise <буд передав сюда строку> = как результат нов Promise
+в конструктор которого передаем кол бек с методом resolve
+per: Promise<string> = new Promise<string>(resolve => {
+    setTimeout(() => {
+      resolve  ('yeeeeeeee')
+    }, 2000)  })
+где по истечению 2сек вызовем  resolve  ('с тем что написанно здесь')
+в шаблоне выводим {{per | async }}
+
+            как отобразить коректную дату через пайп async
+заводим перем date: Observable<Date> = new Observable(perOb => {
+                  setInterval(() => {
+                    perOb.next(new Date())
+                  },1000)                })
+в шаблоне   <p> Date: {{date | async | date: 'hh.mm.ss' }}</p>
+
+
+
+
 44 оптимизация
 добавил кнопку и по клику она будет добовл нов пост
 в тс описываю метод  this.masSpis.unshift({name: 'newname', surname: 'newsurname'})
