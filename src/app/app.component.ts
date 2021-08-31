@@ -13,6 +13,7 @@ export  interface Spis {
 export class AppComponent  {
 
   strPoisk: ''
+  poiskvPoly: ''
 
   masSpis: Spis [] = [
     {surname: 'Петров', name: 'Иван'},

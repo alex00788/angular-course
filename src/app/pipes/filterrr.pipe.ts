@@ -12,7 +12,10 @@ export class FilterrrPipe implements PipeTransform {
     }
     return perP.filter( newMas => {
       return newMas.surname.toLocaleLowerCase().includes(strPoisk.toLocaleLowerCase())
+      ||
+          newMas.name.toLocaleLowerCase().includes(strPoisk.toLocaleLowerCase())
     });
   }
 
 }
+
