@@ -20,4 +20,10 @@ export class AppComponent  {
     {surname: 'Ивлиев', name: 'Вадим'},
   ]
 
+  addP() {
+    this.masSpis.unshift({
+      name: 'newname',
+      surname: 'newsurname'
+    })
+  }
 }

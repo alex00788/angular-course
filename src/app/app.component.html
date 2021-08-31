@@ -1,5 +1,5 @@
 <input type="text" [(ngModel)]="strPoisk" placeholder="Poisk">
-
+<button class="btn" (click)="addP()">добавить имя</button>
 
 <div class="card" *ngFor="let perFor of masSpis | filterrr:strPoisk" >
     {{perFor.surname}}
