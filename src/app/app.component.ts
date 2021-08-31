@@ -1,29 +1,22 @@
 import {Component, OnInit} from '@angular/core';
+import {Observable} from 'rxjs';
 
-export  interface Spis {
-  surname: string
-  name: string
-}
 @Component({
   selector: 'app-sky',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
 
-export class AppComponent  {
-
-  strPoisk: ''
-
-  masSpis: Spis [] = [
-    {surname: 'Петров', name: 'Иван'},
-    {surname: 'Акмеев', name: 'Кирил'},
-    {surname: 'Ивлиев', name: 'Вадим'},
-  ]
-
-  addP() {
-    this.masSpis.unshift({
-      name: 'newname',
-      surname: 'newsurname'
-    })
-  }
+export class AppComponent {
+  per: Promise<string> = new Promise<string>(resolve => {
+    setTimeout(() => {
+      resolve  ('yeeeeeeee')
+    }, 3000)
+  })
+  
+  date: Observable<Date> = new Observable(ob => {
+    setInterval(() => {
+      ob.next(new Date())
+    },1000)
+  })
 }

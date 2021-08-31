@@ -1,7 +1,4 @@
-<input type="text" [(ngModel)]="strPoisk" placeholder="Poisk">
-<button class="btn" (click)="addP()">добавить имя</button>
+<p> ждем .... {{per | async}}</p>
 
-<div class="card" *ngFor="let perFor of masSpis | filterrr:strPoisk" >
-    {{perFor.surname}}
-    {{perFor.name}}
-</div>
+
+<p> Date: {{date | async | date: 'hh.mm.ss' }}</p>
