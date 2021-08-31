@@ -2,7 +2,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 import {Spis} from '../app.component';
 
 @Pipe({
-  name: 'filterrr'
+  name: 'filterrr',
+  pure: false
 })
 export class FilterrrPipe implements PipeTransform {
 
