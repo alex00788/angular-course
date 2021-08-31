@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {Observable} from 'rxjs';
+import {Component} from '@angular/core';
+
 
 @Component({
   selector: 'app-sky',
@@ -8,15 +8,5 @@ import {Observable} from 'rxjs';
 })
 
 export class AppComponent {
-  per: Promise<string> = new Promise<string>(resolve => {
-    setTimeout(() => {
-      resolve  ('yeeeeeeee')
-    }, 3000)
-  })
-  
-  date: Observable<Date> = new Observable(ob => {
-    setInterval(() => {
-      ob.next(new Date())
-    },1000)
-  })
+
 }
