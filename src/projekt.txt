@@ -1,3 +1,21 @@
+54  Валидаторы
+второй параметр который мы передаем new FormControl('', Validators.)
+Validators. после точки можно посмотреть какие есть  важно указывать ссылки без ()
+Validators.email
+чтоб передать массив из нескольких оборачиваем [] [Validators.email, Validators.required]
+для валидатора мин длинна ныжны ()   Validators.minLength(4)]
+
+чтоб приминить валидаторы
+у кнопки  type="submit"  добавляем [disabled]="perForm.invalid
+перем форм у котор есть поля описывающие состояния там же invalid если форма не валидна
+флаг инвелид в значении true то форма блокируеться.
+
+2я защита в методе metodSubmit() {
+                         if (this.perForm.valid) {
+                             console.log('perForm', this.perForm);
+
+
+
 53 создание контролов  email тел и пароль с new FormControl()
 
 там где инициализируем форму см урок 51    ...= new FormGroup({
