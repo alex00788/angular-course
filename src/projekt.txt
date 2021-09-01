@@ -1,3 +1,21 @@
+56 отображение сообщений об ошибке
+        в  <div class="validation"></div>
+сообщения об ошибке можно вывести в теге small<small>поле не может быть пустым</small>
+    что оно показывалось только если форма валидна добавляем ngIf и данное поле потрогали
+    <div *ngIf="perForm.get('email').invalid && perForm.get('email').touched"
+                        class="validation">
+    perForm.get('email').   <=   так получаем доступ до нужного контрола
+чтоб выскакивало нужное сообщение
+        ставим <small *ngIf="perForm.get('email').errors.required"> текст сообщен...
+            в поле errors значение required
+ с длинной сообщения так
+                 <small *ngIf="perForm.get('password').errors.minlength">
+          введите не менее  {{perForm.get('password').errors.minlength.requiredLength}}.
+          сейчас {{perForm.get('password').errors.minlength.actualLength}}
+                                         </small>
+
+
+
 55 Визуализация состояний
 как определить что сработал валидатор
 в консоле в бедтузах можно увидеть поле класс с состояниями (не трогали не меняли не валидно

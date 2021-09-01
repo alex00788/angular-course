@@ -5,19 +5,24 @@
         <div class="form-control">
             <label>Email</label>
             <input type="text" placeholder="Email" formControlName="email">
-            <div class="validation"></div>
-        </div>
-
-        <div class="form-control">
-            <label>tel</label>
-            <input type="text" placeholder="телефон" formControlName="tel">
-            <div class="validation"></div>
+            <div *ngIf="perForm.get('email').invalid && perForm.get('email').touched"
+                    class="validation">
+                <small *ngIf="perForm.get('email').errors.required">поле не может быть пустым </small>
+                <small *ngIf="perForm.get('email').errors.email"> введите корректный email</small>
+            </div>
         </div>
 
         <div class="form-control">
             <label>Пароль</label>
             <input type="password" placeholder="Пароль" formControlName="password">
-            <div class="validation"></div>
+            <div *ngIf="perForm.get('password').invalid && perForm.get('password').touched"
+                    class="validation">
+                <small *ngIf="perForm.get('password').errors.required">поле не может быть пустым </small>
+                <small *ngIf="perForm.get('password').errors.minlength">
+                    введите не менее  {{perForm.get('password').errors.minlength.requiredLength}}.
+                    сейчас {{perForm.get('password').errors.minlength.actualLength}}
+                </small>
+            </div>
         </div>
 
         <div class="card">
