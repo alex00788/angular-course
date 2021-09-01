@@ -1,3 +1,9 @@
+50   как связать сервисы
+создаем новый сервис без тестов с самой простой логикой выводящей текст
+    log(text) { console.log(`log: ${text}`);  }
+в nov ser в constructor(private logggServ: LogggService) {}
+    metod1 () {this.logggServ.log('plus')
+
 49 Область видимости
 Добавил нов компанент и добавил его в шаблон главного через черту...
  в ts в конструкторе импортируем constructor(private perPS: NS) { }
