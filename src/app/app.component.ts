@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormGroup} from '@angular/forms';
+import {FormControl, FormGroup} from '@angular/forms';
 
 
 
@@ -13,10 +13,16 @@ export class AppComponent implements OnInit {
   perForm: FormGroup
 
   ngOnInit() {
-    this.perForm = new FormGroup({})
+    this.perForm = new FormGroup({
+      email:  new FormControl(''),
+      tel:  new FormControl(null),
+      password:  new FormControl(null)
+    })
   }
 
   metodSubmit() {
     console.log('perForm', this.perForm);
+    const fp = (this.perForm.value)
+    console.log('fp', fp);
   }
 }
