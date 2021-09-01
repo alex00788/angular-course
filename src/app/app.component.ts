@@ -1,18 +1,22 @@
-import {Component} from '@angular/core';
-import {NS} from './ servises/n.s';
-import {LocSService} from './ servises/loc-s.service';
+import {Component, OnInit} from '@angular/core';
+import {FormGroup} from '@angular/forms';
+
 
 
 @Component({
   selector: 'app-sky',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
-  providers: [LocSService]
+  styleUrls: ['./app.component.scss']
 })
 
-export class AppComponent {
-  constructor(
-      private perPS: NS,
-      private lokSServ: LocSService
-  ) {}
+export class AppComponent implements OnInit {
+  perForm: FormGroup
+
+  ngOnInit() {
+    this.perForm = new FormGroup({})
+  }
+
+  metodSubmit() {
+    console.log('perForm', this.perForm);
+  }
 }
