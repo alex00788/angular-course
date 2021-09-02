@@ -27,22 +27,15 @@
 
         <div class="card" formGroupName="address">
             <h2>Адрес</h2>
-
+            <label>Страна</label>
+            <select formControlName="country" (change)="changeGor()">
+             <option *ngFor="let country of metod()"
+             value="{{ country.abr }}">{{ country.name }} </option>
+            </select>
             <div class="form-control">
-                <label>Страна</label>
-
-                <select formControlName="strana">
-                    <option value="ru">Россия</option>
-                    <option value="ua">Украина</option>
-                    <option value="by">Беларусь</option>
-                </select>
+                <input type="text" formControlName="city">
             </div>
-
-            <div class="form-control">
-                <input type="text" formControlName="gorod">
-            </div>
-
-            <button class="btn" type="button" (click)="setStrana()">Выбрать столицу</button>
+<!--            <button class="btn" type="button" (click)="setStrana()">Выбрать столицу</button>-->
         </div>
 
         <div class="card">
