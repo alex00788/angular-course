@@ -35,4 +35,16 @@ export class AppComponent implements OnInit {
           console.log('fp', fp);
       }
   }
+
+    setStrana() {
+        const perSetGorod = {
+            ru: 'Moscow',
+            by: 'Минск'
+        }
+        const perGorodKluch = this.perForm.get('address').get('strana').value
+        const perGorod = perSetGorod [perGorodKluch]
+        console.log(perGorod);
+        this.perForm.patchValue({
+            address: {gorod: perGorod}})
+    }
 }
