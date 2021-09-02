@@ -1,40 +1,40 @@
 <div class="container">
-    <form class="card" [formGroup]="perForm" (ngSubmit)="metodSubmit()">
-        <h1>Angular Forms</h1>
-
+  <form class="card" [formGroup]="perForm" (ngSubmit)="metodSubmit()">
+     <h1>Angular Forms</h1>
         <div class="form-control">
-            <label>Email</label>
+          <label>Email</label>
             <input type="text" placeholder="Email" formControlName="email">
-            <div *ngIf="perForm.get('email').invalid && perForm.get('email').touched"
-                    class="validation">
+              <div *ngIf="perForm.get('email').invalid && perForm.get('email').touched" class="validation">
                 <small *ngIf="perForm.get('email').errors.required">поле не может быть пустым </small>
                 <small *ngIf="perForm.get('email').errors.email"> введите корректный email</small>
-            </div>
+              </div>
         </div>
 
         <div class="form-control">
-            <label>Пароль</label>
+          <label>Пароль</label>
             <input type="password" placeholder="Пароль" formControlName="password">
-            <div *ngIf="perForm.get('password').invalid && perForm.get('password').touched"
-                    class="validation">
-                <small *ngIf="perForm.get('password').errors.required">поле не может быть пустым </small>
+              <div *ngIf="perForm.get('password').invalid && perForm.get('password').touched" class="validation">
+                <small *ngIf="perForm.get('password').errors.required"
+                > поле не может быть пустым
+                </small>
                 <small *ngIf="perForm.get('password').errors.minlength">
                     введите не менее  {{perForm.get('password').errors.minlength.requiredLength}}.
                     сейчас {{perForm.get('password').errors.minlength.actualLength}}
                 </small>
-            </div>
+              </div>
         </div>
 
         <div class="card" formGroupName="address">
-            <h2>Адрес</h2>
-
+          <h2>Адрес</h2>
             <div class="form-control">
-                <label>Страна</label>
-
-                <select formControlName="strana">
-                    <option value="ru">Россия</option>
-                    <option value="ua">Украина</option>
-                    <option value="by">Беларусь</option>
+              <label>Страна</label>
+                <select formControlName="strana" (change)="changeCity()">
+<!--                    <option value="ru">Россия</option>-->
+<!--                    <option value="ua">Украина</option>-->
+<!--                    <option value="by">Беларусь</option>-->
+                  <option *ngFor="let country of metod()" value="{{ country.abr }}"
+                  >{{ country.name }}
+                  </option>
                 </select>
             </div>
 
@@ -42,20 +42,20 @@
                 <input type="text" formControlName="gorod">
             </div>
 
-            <button class="btn" type="button" (click)="setStrana()">Выбрать столицу</button>
+            <button class="btn" type="button" (click)="setCountry()">Выбрать столицу</button>
         </div>
 
         <div class="card">
-            <h2>Ваши навыки</h2>
-            <button class="btn" type="button">Добавить умение</button>
-            <div class="form-control">
-                <label></label>
-                <input type="text">
-            </div>
+          <h2>Ваши навыки</h2>
+             <button class="btn" type="button">Добавить умение</button>
+               <div class="form-control">
+                 <label></label>
+                   <input type="text">
+               </div>
         </div>
 
-        <button class="btn" type="submit" [disabled]="perForm.invalid">Отправить</button>
+     <button class="btn" type="submit" [disabled]="perForm.invalid">Отправить</button>
 
-    </form>
+  </form>
 </div>
 

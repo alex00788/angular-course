@@ -1,5 +1,5 @@
 58 динамическое обновление группы
-к кнопке добавляем (click)="setStrana()" и создаем метод в тс
+к кнопке добавляем (click)="setCountry()" и создаем метод в тс
 в тс заводим  const perSetGorod = {
                           ru: 'Moscow'
                           by: 'Минск'  }
@@ -7,9 +7,32 @@ const perKluch = this.perForm.get('address').get('strana').value
         const perGorod = perSetGorod [perKluch]
         console.log(perGorod);
 теперь динамически обновляем контрол с помощью     patchValue    не нарушая состояния формы..
-        this.perForm.patchValue({
-            address: {gorod: perGorod}})
+        this.perForm.patchValue({ address: {gorod: perGorod}})
 
+дополнение к уроку
+            выбирая страну город подставляеться сам
+
+в шаблоне <select formControlName="country" добавляем   (change)="changeCity()">
+в тс  заводим changeCity() {   this.setCountry();    }
+в тс заводим метод который вернет массив
+        metod() {
+                return [
+                    { abr: 'ru', name: 'Россия', capital: 'Москва'},
+                    { abr: 'ua', name: 'Украина', capital: 'Киев'},
+                    { abr: 'by', name: 'Беларусь', capital: 'Минск'},
+                ]
+            }
+ в шаблоне  <option
+                *ngFor="let country of metod()" value="{{ country.abr }}">{{ country.name }}
+            </option>
+                </select>
+
+в тс в методе  setCountry
+           const perKluch = this.perForm.get('address').get('strana').value
+           const perGorod = this.metod
+               .filter( ( perAny1 ) => perAny1.abrrev === perKluch)
+               .map( perAny22 => perAny22.capital )
+           this.perForm.patchValue({address: { address: {gorod: perGorod + ' !!!!'}})
 
 
 
