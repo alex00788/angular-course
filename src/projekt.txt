@@ -1,3 +1,15 @@
+57  создание групп
+в ngOnInit() { добавляем address: new FormGroup({
+                                     strana: new FormControl('ru'),
+                                     gorod: new FormControl('moscow', Validators.required)
+в шаблоне в <div class="card" добавляем дерективу  formGroupName="address">
+      тоже для <select formControlName="strana">
+      <input type="text" formControlName="gorod">
+
+
+
+
+
 56 отображение сообщений об ошибке
         в  <div class="validation"></div>
 сообщения об ошибке можно вывести в теге small<small>поле не может быть пустым</small>
@@ -48,7 +60,7 @@ Validators.email
 
 
 
-53 создание контролов  email тел и пароль с new FormControl()
+53 создание контролов  email  и пароль с new FormControl()
 
 там где инициализируем форму см урок 51    ...= new FormGroup({
 имя поля  email:  new FormControl()})
@@ -69,8 +81,8 @@ Validators.email
 создаем перемен в export class AppComponent {  perForm: FormGroup}
     инициализируем ее имплементируясь от OnInit
 ngOnInit() { this.perForm = new FormGroup({})  } ...
-new FormGroupэто класс котор позволяет создать форму
-в конструктор передаем пустой объект контролс {}
+new FormGroup  это класс котор позволяет создать форму
+внутри передаем пустой объект контролс {}
 
 связываем эту форму с формой в шаблоне с помощью дерективы [formGroup]="perForm"
 

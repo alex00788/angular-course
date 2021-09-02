@@ -19,7 +19,12 @@ export class AppComponent implements OnInit {
           Validators.required]),
         password:  new FormControl(null, [
           Validators.required,
-          Validators.minLength(4)])
+          Validators.minLength(4)]),
+
+        address: new FormGroup({
+            strana: new FormControl('by'),
+            gorod: new FormControl('Moscow', Validators.required)
+        })
     })
   }
 
