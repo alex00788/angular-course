@@ -1,3 +1,37 @@
+60 Созданиу своего Валидатора например email который запрещен
+создаем файл my.validators.ts
+export class MyValidators {
+    static bedEmail (control: FormControl) : возвращаем объект у которого
+    ключ string  а значение boolean
+    {[key: string]: boolean}
+Если есть ошибка возвращаем объект у которого ключь строка с  придуманным текстом например
+ bedEmail:true  со значением :true
+ возвращаем null если нет ошибки
+
+полное описание ниже
+
+ export class MyValidators {
+    static bedEmail (control: FormControl) : {[key: string]: boolean}{
+       if (['bed@email.ru' , 'b@mail.ru'].includes(control.value)) {
+           return {'bedEmail':true}
+       }
+        return  null
+    }
+ }
+
+в тс там где валидаторы добавляем новый MyValidators.bedEmail
+в шаблоне добавляем сообщение об ошибке
+<small *ngIf="perForm.get('email').errors.   bedEmail    "> такого нету или
+ {{perForm.get('email').value}} запрещен </small>
+
+
+59  Работа с группой добавление умений
+
+
+
+
+
+
 58 динамическое обновление группы
 к кнопке добавляем (click)="setCountry()" и создаем метод в тс
 в тс заводим  const perSetGorod = {
