@@ -19,7 +19,7 @@ export class AppComponent implements OnInit {
           Validators.email,
           Validators.required,
           MyValidators.bedEmail
-      ]),
+      ], MyValidators.uniqEm),
 
       password:  new FormControl(null, [
           Validators.required,

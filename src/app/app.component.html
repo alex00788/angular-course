@@ -7,7 +7,8 @@
               <div *ngIf="perForm.get('email').invalid && perForm.get('email').touched" class="validation">
                 <small *ngIf="perForm.get('email').errors.required">поле не может быть пустым </small>
                 <small *ngIf="perForm.get('email').errors.email"> введите корректный email</small>
-                  <small *ngIf="perForm.get('email').errors.   bedEmail    "> такого нету или
+                <small *ngIf="perForm.get('email').errors.uniqEm"> занято асинхрон</small>
+                <small *ngIf="perForm.get('email').errors.bedEmail "> такого нету или
                     Такой  {{perForm.get('email').value}} запрещен </small>
               </div>
         </div>
