@@ -51,10 +51,20 @@ export class MyValidators {
 
 
 59  Работа с группой добавление умений
-
-
-
-
+заводим в инициализации формы skills: new FormArray([])
+оживляем кнопку добавить умение с методом addSkill
+v ts создаю новый контрол с помощью класса new FormControl
+const control = new FormControl('', Validators.required);
+        (this.form.get('skills') as FormArray).push(control)
+далее в шаблоне
+<div class="form-control"
+      *ngFor="let control of perForm.get('skills').controls; let idx = index"
+>
+     <label>Умение {{idx + 1 }}</label>
+     <input type="text" [formControlName]="idx">
+</div>
+и выше в <div class="card"  добавляем следущее  formControlName="skilss">
+                   <h2>Ваши навыки</h2>
 
 
 58 динамическое обновление группы
