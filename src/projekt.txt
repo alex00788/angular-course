@@ -1,3 +1,49 @@
+63   своя ngModel на примере кнопок переключения
+  очистил проэкт//    создаем компанент переключатель switch
+  прописываем его в главном компаненте
+
+  заводим 2 кнопки on и off  задаем им стили... далее оживляем компонент
+  заводим пер per='off'   и метод
+  setPer (per2: string){ this.per = per2}
+
+  далее в шаблоне при клике вызываем метод setPer ('on') и setPer ('off')
+меняем условие <button [class.active]="per === 'on '" >on</button>  тоже для 2й кнопке
+
+v app component <app-switch [(ngModel)]="appPer"></app-switch>
+v ts   appPer = 'off'
+делаем свою ngModel
+в созданном компаненте заводим перем  const V-A: Provider = {
+provide: NG_VALUE_ACCESSOR,                         1м параметром
+useExisting: forwardRef(() => SwitchComponent),     2м метод с функц..   и 3м
+multi: true
+}
+далее implements ControlValueAccessor  tabEnter ... раскрывая все мемборы
+
+далее выше создаем private onCh = (value: any) => {} это пустая фукция
+
+далее метод onCh регистрируем
+registerOnChange(fn: any): void {
+    this.onCh = fn
+  }
+
+  далее this.onCh(this.per) пишем выше под  этой строкой=>   private onCh = (value: any) => {}
+
+в шаблоне после черты выводим значение appPer ...
+
+в writeValue(per3: string): void {
+      this.per = per3
+
+далее можно добавить  (ngModelChange)="metIzm()"
+ добавляют когда модель изменилась
+ в тс  metIzm() {     console.log(this.appPer);   }
+и можно видеть изменения в консоле...
+
+для работы метода достаточно зарегистрировать 2 метода registerOnChange и writeValue
+
+
+
+
+
 62  Очистка формы
 в методе metodSubmit() { this.perForm.reset()
 
