@@ -1,3 +1,23 @@
+61 Асинхронные валидаторы  нужны для проверки данных на сервере ...занят ли номер или имя...
+в валидаторе котор создали заводим
+static uniqEm (control: FormControl) : Promise<any> | Observable<any> {
+        return new Promise(resolve => {
+            setTimeout( () => {
+                if (control.value === 'as.@email.ru') {
+                    resolve ({
+                        uniqEm: true })
+                } else {
+                    resolve: null
+                }
+            }, 2000)
+        })
+    }
+ }
+ асинхронные валидаторы передаем 3им параметром ...
+ 1 начальное значен 2 валидотор или массив валид  3 асин валидаторы или их массив
+и в шаблоне обрабатываем сообщением об ошибке
+
+
 60 Созданиу своего Валидатора например email который запрещен
 создаем файл my.validators.ts
 export class MyValidators {
