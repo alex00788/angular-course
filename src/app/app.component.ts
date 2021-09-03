@@ -37,6 +37,7 @@ export class AppComponent implements OnInit {
        console.log('perForm', this.perForm);
        const fp = (this.perForm.value)
        console.log('fp', fp);
+        this.perForm.reset()
     }
   }
 
