@@ -1,10 +1,10 @@
-import {Component, OnInit,} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 
     export  interface InTodo {
-        completed: boolean
-        title: string
-        id?: number
+        completed: boolean;
+        title: string;
+        id?: number;
     }
 
 @Component({
@@ -15,9 +15,9 @@ import {HttpClient} from '@angular/common/http';
 
 export class AppComponent implements OnInit {
 
-    perMasTodo: InTodo[] = []
+    perMasTodo: InTodo[] = [];
 
-    newPerTodoTitle = ''
+    newPerTodoTitle = '';
 
   constructor(private httpCl: HttpClient) {  }
 
@@ -25,11 +25,23 @@ export class AppComponent implements OnInit {
       this.httpCl.get<InTodo[]>('https://jsonplaceholder.typicode.com/todos?_limit=2')
       .subscribe( perMasTodo => {
           console.log('responz eto', perMasTodo);
-          this.perMasTodo = perMasTodo
+          this.perMasTodo = perMasTodo;
       })
   }
 
     addTodo() {
-
+        if (!this.newPerTodoTitle.trim()) {
+            return;
+        }
+      const newTodo: InTodo = {
+        title: this.newPerTodoTitle,
+        completed: false
+      };
+        this.httpCl.post<InTodo>('https://jsonplaceholder.typicode.com/todos', newTodo)
+            .subscribe(todo => {
+                console.log('todo eto', todo);
+                this.perMasTodo.push(todo);
+                this.newPerTodoTitle = '';
+            });
     }
 }

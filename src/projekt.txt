@@ -3,8 +3,25 @@
 заводим newPerTodoTitle = ''
 а в шаблоне выводим ее в <input type="text" placeholder="Название"
 через [(ngModel)]="newPerTodoTitle"
-добавляем клик к кнопке добавить
-
+добавляем клик к кнопке добавить и создаем метод в тс
+addTodo() {
+        if (!this.newPerTodoTitle.trim()) {     // если у перемен вызову методом трим,
+         и если данная строка пустая...
+            return;    тогда вернусь и ничего не буду делать
+        }
+      const newTodo: InTodo = {         если что то вписали то созд нов перем с явным типом с полями ниже
+        title: this.newPerTodoTitle,
+        completed: false };
+        id должно прийти с сервера
+далее чтоб создать новый todo  вызываем post с 1м пораметром url по котор отправлю запрос, 2м должен
+быть объект но у нас уже есть перемен которую передаем...
+        this.httpCl.post<InTodo>('https://jsonplaceholder.typicode.com/todos', newTodo)
+            .subscribe(todo => {     подписываемся чтоб метод был вызван и смотрим что пришлет сервер
+                console.log('todo eto', todo);
+чтоб визуально отобразить что пришло ссервера
+                this.perMasTodo.push(todo);     обращ к массиву и пушем добавл
+                this.newPerTodoTitle = '';     очищаем поле
+            });
 
 
 
