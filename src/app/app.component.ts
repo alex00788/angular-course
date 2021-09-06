@@ -14,7 +14,11 @@ import {HttpClient} from '@angular/common/http';
 })
 
 export class AppComponent implements OnInit {
-        perMasTodo: InTodo[] = []
+
+    perMasTodo: InTodo[] = []
+
+    newPerTodoTitle = ''
+
   constructor(private httpCl: HttpClient) {  }
 
   ngOnInit() {
@@ -24,4 +28,8 @@ export class AppComponent implements OnInit {
           this.perMasTodo = perMasTodo
       })
   }
+
+    addTodo() {
+
+    }
 }
