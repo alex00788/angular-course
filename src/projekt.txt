@@ -1,21 +1,160 @@
-59 работа с группой    добавить умение
+
+65 получение данных и вывод в шаблон
+Подключаем модуль для работы пакета   HttpClientModule
+Инектируем в конструктор компанента
+Private per httpCl : HttpClient
+Теперь можно к нему обращаться через this
+subscribe подписаться...   Можно смотреть и другие методы после точки
+Они помогают обрабатывать rstpi  запросы///    https://jsonplaceholder.typicode.com/
+Отправляем post put get delit
+
+Обращаемся к this httpCl. Get ('ссылка ')
+Когда мы создаем стрим нужно добавить хоть одного слушателя..т.е. подписаться .subscribe(
+response => { console.log   }) В консоле можно увидеть ответ что пришло с сервера в xhr
+Как вывести данные в шаблон
+заводим интерфейс с полями которые приходят в ответе ...
+ export  interface InTodo {
+        completed: boolean
+        title: string
+        id?: number
+заводим  perTodo: InTodo[] = []
+this.httpCl.get<InTodo[]>('https://jsonplaceholder.typicode.com/todos?_limit=2')
+      .subscribe( perMasTodo => {
+          console.log('responz eto', perMasTodo);
+          this.perMasTodo = perMasTodo
+
+в шаблоне
+<div class="card" *ngFor="let ngF of perMasTodo">
+    <p> <span [class.completed]="ngF.completed">{{ngF.title}}</span>
+класс completed добавляеться тока если в значении true
+добавляем в кнопку
+
+64-работа с сервером ввод..
 
 
 
 
+63  ngModel на примере кнопок переключения
+        создаем компанент  switch  и его селектор размещ в шаблоне главн
+    заводим 2 кнопки on и off  задаем им стили...  оживляем компонент
+ заводим    perSt='off'
+ и метод     SetMet (per2: string)
+                { this.per = per2}
+    в шаблоне (click)="SetMet('off')" тоже для ('on')
+меняем условие <button [class.active]="perSt === 'off '">on</button>  тоже для 'on'
+
+в главн component <app-switch [(ngModel)]="appPer"></app-switch>
+v ts   appPer = 'off'     в шаблоне после черты выводим значение appPer ...
+далее делаем свою ngModel
+в создан компаненте перед декаратором
+заводим   const perV_A: Provider = {1м параметром ..2м метод с функц..   и 3м..
+provide: NG_VALUE_ACCESSOR,
+useExisting: forwardRef(() => SwitchComponent),
+multi: true
+}
+далее implements ControlValueAccessor  tabEnter ... раскрывая все мемборы
+
+ под строкой appPer = 'off'  создаем
+            private onCh = (value: any) => {} это пустая фукция
+регистрируем  onCh
+        registerOnChange(fn: any): void {
+            this.onCh = fn  }
+далее под строкой в SetMet ...   this.perSt = per2  пишем
+                                 this.onCh(this.per)
+в writeValue(per3: string): void {
+      this.per = per3
+
+далее можно добавить в шаблон главн комп  (ngModelChange)="metIzm()"    добавляют когда модель изменилась
+ в тс  metIzm() {     console.log(this.appPer);   }
+и можно видеть изменения в консоле...
+
+
+
+
+
+62  Очистка формы
+в методе metodSubmit() { this.perForm.reset()
+
+
+61 Асинхронные валидаторы  нужны для проверки данных на сервере ...занят ли номер или имя...
+в валидаторе котор создали заводим
+static uniqEm (control: FormControl) : Promise<any> | Observable<any> {
+        return new Promise(resolve => {
+            setTimeout( () => {
+                if (control.value === 'as.@email.ru') {
+                    resolve ({
+                        uniqEm: true })
+                } else {
+                    resolve: null
+                }
+            }, 2000)
+        })
+    }
+ }
+ асинхронные валидаторы передаем 3им параметром ...
+ 1 начальное значен 2 валидотор или массив валид  3 асин валидаторы или их массив
+и в шаблоне обрабатываем сообщением об ошибке
+в кнопку отправки сообщения  добавил perForm.pending
+
+
+60 Создание своего Валидатора например email который запрещен
+создаем файл my.validators.ts
+export class MyValidators {
+    static bedEmail (control: FormControl) : возвращаем объект у которого
+    ключ string  а значение boolean
+    {[key: string]: boolean}
+Если есть ошибка возвращаем объект у которого ключь строка с  придуманным текстом например
+ bedEmail:true  со значением :true
+ возвращаем null если нет ошибки
+
+полное описание ниже
+
+ export class MyValidators {
+    static bedEmail (control: FormControl) : {[key: string]: boolean}{
+       if (['bed@email.ru' , 'b@mail.ru'].includes(control.value)) {
+           return {'bedEmail':true}
+       }
+        return  null
+    }
+ }
+
+в тс там где валидаторы добавляем новый MyValidators.bedEmail
+в шаблоне добавляем сообщение об ошибке
+<small *ngIf="perForm.get('email').errors.   bedEmail    "> такого нету или
+ {{perForm.get('email').value}} запрещен </small>
+
+
+59  Работа с группой добавление умений
+заводим в инициализации формы skills: new FormArray([])
+оживляем кнопку добавить умение с методом addSkill
+v ts создаю новый контрол с помощью класса new FormControl
+const control = new FormControl('', Validators.required);
+        (this.form.get('skills') as FormArray).push(control)
+далее в шаблоне
+<div class="form-control"
+      *ngFor="let control of perForm.get('skills').controls; let idx = index"
+>
+     <label>Умение {{idx + 1 }}</label>
+     <input type="text" [formControlName]="idx">
+</div>
+и выше в <div class="card"  добавляем следущее  formControlName="skilss">
+                   <h2>Ваши навыки</h2>
 
 
 58 динамическое обновление группы
- добавляем (click)="setStrana()" и создаем метод в тс
-в тс в методе заводим  const perSetGorod = {
-                          ru: 'Moscow',
+к кнопке добавляем (click)="setCountry()" и создаем метод в тс
+в тс заводим  const perSetGorod = {
+                          ru: 'Moscow'
+
                           by: 'Минск'  }
         const perKluch = this.perForm.get('address').get('strana').value
         const perGorod = perSetGorod [perKluch]
             console.log(perGorod);
 теперь динамически обновляем контрол с помощью     patchValue    не нарушая состояния формы..
+
         this.perForm.patchValue({
             address: {gorod: perGorod}})
+
 
 дополнение к уроку
             выбирая страну город подставляеться сам
@@ -35,11 +174,13 @@
                      </select>
 
 в тс в методе  setStrana
+
            const perKluch = this.perForm.get('address').get('strana').value
            const perGorod = this.metod
                .filter( ( perAny1 ) => perAny1.abrrev === perKluch)
                .map( perAny22 => perAny22.capital )
            this.perForm.patchValue({address: { address: {gorod: perGorod + ' !!!!'}})
+
 
 
 

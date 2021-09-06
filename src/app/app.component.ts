@@ -1,7 +1,11 @@
-import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {Component, OnInit,} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
 
-
+    export  interface InTodo {
+        completed: boolean
+        title: string
+        id?: number
+    }
 
 @Component({
   selector: 'app-sky',
@@ -10,6 +14,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 })
 
 export class AppComponent implements OnInit {
+
     perForm: FormGroup
 
     ngOnInit() {
@@ -59,5 +64,4 @@ export class AppComponent implements OnInit {
     changeGor() {
         this.setStrana();
     }
-}
 
