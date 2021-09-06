@@ -3,8 +3,13 @@
 
     <div class="card">
         <div class="form-control">
-            <input type="text" placeholder="Название">
+            <input type="text" placeholder="Название" [(ngModel)]="newPerTodoTitle">
         </div>
+
+        <button class="btn" (click)="addTodo()">Добавить</button>
+        <button class="btn">Загрузить</button>
+    </div>
+
 
 
         <div class="form-control">
