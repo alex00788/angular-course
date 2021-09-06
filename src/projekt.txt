@@ -1,44 +1,71 @@
-63   своя ngModel на примере кнопок переключения
-  очистил проэкт//    создаем компанент переключатель switch
-  прописываем его в главном компаненте
+65 получение данных и вывод в шаблон
+Подключаем модуль для работы пакета   HttpClientModule
+Инектируем в конструктор компанента
+Private per httpCl : HttpClient
+Теперь можно к нему обращаться через this
+subscribe подписаться...   Можно смотреть и другие методы после точки
+Они помогают обрабатывать rstpi  запросы///    https://jsonplaceholder.typicode.com/
+Отправляем post put get delit
 
-  заводим 2 кнопки on и off  задаем им стили... далее оживляем компонент
-  заводим пер per='off'   и метод
-  setPer (per2: string){ this.per = per2}
+Обращаемся к this httpCl. Get ('ссылка ')
+Когда мы создаем стрим нужно добавить хоть одного слушателя..т.е. подписаться .subscribe(
+response => { console.log   }) В консоле можно увидеть ответ что пришло с сервера в xhr
+Как вывести данные в шаблон
+заводим интерфейс с полями которые приходят в ответе ...
+ export  interface InTodo {
+        completed: boolean
+        title: string
+        id?: number
+заводим  perTodo: InTodo[] = []
+this.httpCl.get<InTodo[]>('https://jsonplaceholder.typicode.com/todos?_limit=2')
+      .subscribe( perMasTodo => {
+          console.log('responz eto', perMasTodo);
+          this.perMasTodo = perMasTodo
 
-  далее в шаблоне при клике вызываем метод setPer ('on') и setPer ('off')
-меняем условие <button [class.active]="per === 'on '" >on</button>  тоже для 2й кнопке
+в шаблоне
+<div class="card" *ngFor="let ngF of perMasTodo">
+    <p> <span [class.completed]="ngF.completed">{{ngF.title}}</span>
+класс completed добавляеться тока если в значении true
+добавляем в кнопку
 
-v app component <app-switch [(ngModel)]="appPer"></app-switch>
-v ts   appPer = 'off'
-делаем свою ngModel
-в созданном компаненте заводим перем  const V-A: Provider = {
-provide: NG_VALUE_ACCESSOR,                         1м параметром
-useExisting: forwardRef(() => SwitchComponent),     2м метод с функц..   и 3м
+64-работа с сервером ввод..
+
+
+
+
+63  ngModel на примере кнопок переключения
+        создаем компанент  switch  и его селектор размещ в шаблоне главн
+    заводим 2 кнопки on и off  задаем им стили...  оживляем компонент
+ заводим    perSt='off'
+ и метод     SetMet (per2: string)
+                { this.per = per2}
+    в шаблоне (click)="SetMet('off')" тоже для ('on')
+меняем условие <button [class.active]="perSt === 'off '">on</button>  тоже для 'on'
+
+в главн component <app-switch [(ngModel)]="appPer"></app-switch>
+v ts   appPer = 'off'     в шаблоне после черты выводим значение appPer ...
+далее делаем свою ngModel
+в создан компаненте перед декаратором
+заводим   const perV_A: Provider = {1м параметром ..2м метод с функц..   и 3м..
+provide: NG_VALUE_ACCESSOR,
+useExisting: forwardRef(() => SwitchComponent),
 multi: true
 }
 далее implements ControlValueAccessor  tabEnter ... раскрывая все мемборы
 
-далее выше создаем private onCh = (value: any) => {} это пустая фукция
-
-далее метод onCh регистрируем
-registerOnChange(fn: any): void {
-    this.onCh = fn
-  }
-
-  далее this.onCh(this.per) пишем выше под  этой строкой=>   private onCh = (value: any) => {}
-
-в шаблоне после черты выводим значение appPer ...
-
+ под строкой appPer = 'off'  создаем
+            private onCh = (value: any) => {} это пустая фукция
+регистрируем  onCh
+        registerOnChange(fn: any): void {
+            this.onCh = fn  }
+далее под строкой в SetMet ...   this.perSt = per2  пишем
+                                 this.onCh(this.per)
 в writeValue(per3: string): void {
       this.per = per3
 
-далее можно добавить  (ngModelChange)="metIzm()"
- добавляют когда модель изменилась
+далее можно добавить в шаблон главн комп  (ngModelChange)="metIzm()"    добавляют когда модель изменилась
  в тс  metIzm() {     console.log(this.appPer);   }
 и можно видеть изменения в консоле...
-
-для работы метода достаточно зарегистрировать 2 метода registerOnChange и writeValue
 
 
 
@@ -69,7 +96,7 @@ static uniqEm (control: FormControl) : Promise<any> | Observable<any> {
 в кнопку отправки сообщения  добавил perForm.pending
 
 
-60 Созданиу своего Валидатора например email который запрещен
+60 Создание своего Валидатора например email который запрещен
 создаем файл my.validators.ts
 export class MyValidators {
     static bedEmail (control: FormControl) : возвращаем объект у которого
