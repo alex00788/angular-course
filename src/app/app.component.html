@@ -4,6 +4,7 @@
         <div class="form-control">
           <label>Email</label>
             <input type="text" placeholder="Email" formControlName="email">
+            <pre>{{perForm.get('email').errors | json }}</pre>
               <div *ngIf="perForm.get('email').invalid && perForm.get('email').touched" class="validation">
                 <small *ngIf="perForm.get('email').errors.required">поле не может быть пустым </small>
                 <small *ngIf="perForm.get('email').errors.email"> введите корректный email</small>

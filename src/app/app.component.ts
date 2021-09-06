@@ -11,14 +11,14 @@ import {MyValidators} from './my.validators';
 })
 
 export class AppComponent implements OnInit {
-  perForm: FormGroup
+  perForm: FormGroup;
 
   ngOnInit() {
     this.perForm = new FormGroup({
       email:  new FormControl('', [
           Validators.email,
           Validators.required,
-          MyValidators.bedEmail
+          MyValidators.badEmail
       ], MyValidators.uniqEm),
 
       password:  new FormControl(null, [
@@ -34,11 +34,12 @@ export class AppComponent implements OnInit {
   }
 
   metodSubmit() {
+      console.log('metodSubmit');
     if (this.perForm.valid) {
        console.log('perForm', this.perForm);
-       const fp = (this.perForm.value)
+       const fp = (this.perForm.value);
        console.log('fp', fp);
-        this.perForm.reset()
+        this.perForm.reset();
     }
   }
 
