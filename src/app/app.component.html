@@ -1,12 +1,24 @@
 <div class="container">
-    <h1>моя нж модель</h1>
+    <h1>Angular HttpClient</h1>
 
-    <app-switch
-       [(ngModel)]="appPer"
-       (ngModelChange)="metIzm()"
-    ></app-switch>
+    <div class="card">
+        <div class="form-control">
+            <input type="text" placeholder="Название">
+        </div>
+        <button class="btn">Добавить</button>
+        <button class="btn">Загрузить</button>
+    </div>
+
     <hr>
 
-    <p> appPer : {{appPer}}</p>
-
+    <div class="card" *ngFor="let ngF of perMasTodo">
+        <p>
+            <span [class.completed]="ngF.completed">{{ngF.title | titlecase}}</span>
+            <span>
+        <button class="btn btn-danger">Удалить</button>
+        <button class="btn" [disabled]="ngF.completed">Завершить</button>
+      </span>
+        </p>
+    </div>
 </div>
+

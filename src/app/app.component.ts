@@ -1,4 +1,11 @@
-import {Component,} from '@angular/core';
+import {Component, OnInit,} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+
+    export  interface InTodo {
+        completed: boolean
+        title: string
+        id?: number
+    }
 
 @Component({
   selector: 'app-sky',
@@ -6,10 +13,15 @@ import {Component,} from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 
-export class AppComponent  {
-appPer = 'off'
+export class AppComponent implements OnInit {
+        perMasTodo: InTodo[] = []
+  constructor(private httpCl: HttpClient) {  }
 
-  metIzm() {
-    console.log(this.appPer);
+  ngOnInit() {
+      this.httpCl.get<InTodo[]>('https://jsonplaceholder.typicode.com/todos?_limit=2')
+      .subscribe( perMasTodo => {
+          console.log('responz eto', perMasTodo);
+          this.perMasTodo = perMasTodo
+      })
   }
 }
