@@ -72,5 +72,7 @@ export class AppComponent implements OnInit {
         const control = new FormControl('', Validators.required);
         // (<FormArray>this.form.get('skills')).push(control)
         (this.perForm.get('skills') as FormArray).push(control)
+
     }
 }
+
