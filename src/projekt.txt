@@ -1,4 +1,21 @@
-68
+68 удаление элементов
+оживляем кнопку <button class="btn btn-danger" (click)="remuveTodo(ngF.id)">Удалить</button>
+заводим метод в тс
+remuveTodo(id: number) {
+       this.httpCl.delete<void>(`https://jsonplaceholder.typicode.com/todos/${id}`)
+           .subscribe(response => {
+              this.perMasTodo = this.perMasTodo.filter(t => t.id !== id);
+           });
+    }
+добавляем лодинг если нет элементов ... еще раз обернем все в див
+<div *ngIf="perMasTodo.length; else noTodo">
+если в массиве и его поле что то есть показываем   иначе показыв др блок ...
+<ng-template #noTodo>
+           <p> ...нет элементов </p>
+        </ng-template>
+
+
+
 
 67   RxJS операторы и индикатор загрузки
     оживляю кнопку загрузить добавляем (click)="fetchTodo()  и заводим этот метод в тс

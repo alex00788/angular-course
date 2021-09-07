@@ -54,4 +54,11 @@ export class AppComponent implements OnInit {
         this.loading = false;
             })
     }
+
+    remuveTodo(id: number) {
+       this.httpCl.delete<void>(`https://jsonplaceholder.typicode.com/todos/${id}`)
+           .subscribe(response => {
+              this.perMasTodo = this.perMasTodo.filter(t => t.id !== id);
+           });
+    }
 }
