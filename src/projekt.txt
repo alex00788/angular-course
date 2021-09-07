@@ -1,5 +1,16 @@
 67   RxJS операторы и индикатор загрузки
-
+    оживляю кнопку загрузить добавляем (click)="fetchTodo()  и заводим этот метод в тс
+    а далее переносим логику из onInita в этот метод
+    чтоб он подгружался автоматически в ngOnInit() {this.fetchTodo()    }
+заводим индикатор загрузки    loading = false;
+в методе fetchTodo  начиная грузить какие то данные мы говорим что this.loading = true;
+ в конце добавляем this.loading = false;
+в шаблоне обернем все в div *ngIf="!loading; else loadingBlock"   если не лодин то показываем блок
+иначе <ng-template #loadingBlock>
+              <p>...loading</p>
+          </ng-template>
+добавим искуственную задержку в fetchTodo() {
+                                   .pipe(delay(1500))   до .subscribe
 
 
 66 создание объектов с Post
@@ -119,7 +130,7 @@ static uniqEm (control: FormControl) : Promise<any> | Observable<any> {
                     resolve ({
                         uniqEm: true })
                 } else {
-                    resolve: null
+                    resolve (null)
                 }
             }, 2000)
         })
