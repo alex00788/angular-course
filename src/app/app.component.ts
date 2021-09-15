@@ -1,12 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {delay} from 'rxjs/operators';
+import {InTodo, ToDoService} from './toDo.service';
 
-export  interface InTodo {
-    completed: boolean;
-    title: string;
-    id?: number;
-}
+
 
 @Component({
     selector: 'app-sky',
@@ -22,7 +19,7 @@ export class AppComponent implements OnInit {
 
     newPerTodoTitle = '';
 
-    constructor(private httpCl: HttpClient) {  }
+    constructor(private todoServ: ToDoService) {  }
 
     ngOnInit() {
         this.fetchTodo()
@@ -32,22 +29,21 @@ export class AppComponent implements OnInit {
         if (!this.newPerTodoTitle.trim()) {
             return;
         }
-        const newTodo: InTodo = {
+
+        this.todoServ.addTodo({
             title: this.newPerTodoTitle,
             completed: false
-        };
-        this.httpCl.post<InTodo>('https://jsonplaceholder.typicode.com/todos', newTodo)
+        })
             .subscribe(todo => {
-                console.log('todo eto', todo);
-                this.perMasTodo.push(todo);
-                this.newPerTodoTitle = '';
-            });
+            console.log('todo eto', todo);
+            this.perMasTodo.push(todo);
+            this.newPerTodoTitle = '';
+        });
     }
 
     fetchTodo() {
         this.loading = true;
-        this.httpCl.get<InTodo[]>('https://jsonplaceholder.typicode.com/todos?_limit=2')
-            .pipe(delay(1500))
+            this.todoServ.fetchTodo()
             .subscribe( perMasTodo => {
                 console.log('responz eto', perMasTodo);
                 this.perMasTodo = perMasTodo;
@@ -56,7 +52,7 @@ export class AppComponent implements OnInit {
     }
 
     remuveTodo(id: number) {
-       this.httpCl.delete<void>(`https://jsonplaceholder.typicode.com/todos/${id}`)
+        this.todoServ.remuveTodo(id)
            .subscribe(response => {
               this.perMasTodo = this.perMasTodo.filter(t => t.id !== id);
            });
