@@ -18,7 +18,7 @@
                     <span [class.completed]="ngF.completed">{{ngF.title | titlecase}}</span>
                     <span>
                       <button class="btn btn-danger" (click)="remuveTodo(ngF.id)">Удалить</button>
-                      <button class="btn" [disabled]="ngF.completed">Завершить</button>
+                      <button class="btn" [disabled]="ngF.completed" (click)="completeTodo()">Завершить</button>
                     </span>
                 </p>
             </div>

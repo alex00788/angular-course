@@ -23,7 +23,13 @@ export class ToDoService {
         return this.httpCl.get<InTodo[]>('https://jsonplaceholder.typicode.com/todos?_limit=2')
             .pipe(delay(500));
     }
-    remuveTodo(id: number): Observable <void> {
+    removeTodo(id: number): Observable <void> {
         return  this.httpCl.delete<void>(`https://jsonplaceholder.typicode.com/todos/${id}`);
+    }
+
+    completedTodo(id: number): Observable<InTodo> {
+       return  this.httpCl.put<InTodo>(`https://jsonplaceholder.typicode.com/todos/${id}`, {
+            completed: true
+        });
     }
 }

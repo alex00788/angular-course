@@ -22,7 +22,7 @@ export class AppComponent implements OnInit {
     constructor(private todoServ: ToDoService) {  }
 
     ngOnInit() {
-        this.fetchTodo()
+        this.fetchTodo();
     }
 
     addTodo() {
@@ -45,16 +45,22 @@ export class AppComponent implements OnInit {
         this.loading = true;
             this.todoServ.fetchTodo()
             .subscribe( perMasTodo => {
-                console.log('responz eto', perMasTodo);
+                console.log('response eto', perMasTodo);
                 this.perMasTodo = perMasTodo;
         this.loading = false;
             })
     }
 
-    remuveTodo(id: number) {
-        this.todoServ.remuveTodo(id)
+    removeTodo(id: number) {
+        this.todoServ.removeTodo(id)
            .subscribe(response => {
               this.perMasTodo = this.perMasTodo.filter(t => t.id !== id);
            });
+    }
+
+    completedTodo(id: number) {
+        this.todoServ.completedTodo(id).subscribe(todomy => {
+            this.perMasTodo.find(t => t.id === todomy.id).completed = true;
+        });
     }
 }
