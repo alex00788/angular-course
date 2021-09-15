@@ -1,3 +1,25 @@
+70 Модификация с PUT
+Оживим кнопку завершить которая зачеркнет текст
+(click)="completedTodo()
+заводим его в тс и теперь обращаемся к сервису   поэтому реализовывать его будем в сервесе
+comp
+completedTodo(id: number): Observable<InTodo> {
+       return  this.httpCl.put<InTodo>(`https://jsonplaceholder.typicode.com/todos/${id}`, {
+            complete: true
+            }
+{второй параметр это  объект с полями которые хотим менять у нас это complete: true})
+        put позволяет изменять данные
+
+в тс   обращаемся к сервесу,  вызываем созданый метод, передаем в него id,
+подписываемся на стрим принимаем todo
+completeTodo(id: number) {
+        this.todoServ.completedTodo(id).subscribe(todomy => {
+            this.perMasTodo.find(t => t.id === todomy.id).completed = true;
+        });
+
+
+
+
 69 перенос логики в сервис
 Создаем сервис
     import {HttpClient} from '@angular/common/http';
