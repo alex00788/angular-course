@@ -1,3 +1,54 @@
+69 перенос логики в сервис
+Создаем сервис
+    import {HttpClient} from '@angular/common/http';
+
+    @Injectable({providedIn: 'root'})
+
+    export class ToDoService {
+    constructor(private httpCl: HttpClient) {}  }
+
+реализуем получение данных создание нового и удоление....
+  переносим интерфейс  тока добовляем импорт сервиса в компанент... altEnter
+
+  далее переносим логику начиная с addTodo
+  this.httpCl.post<InTodo>('https://jsonplaceholder.typicode.com/todos', newTodo)
+              .subscribe(todo => {
+                  console.log('todo eto', todo);
+                  this.perMasTodo.push(todo);
+                  this.newPerTodoTitle = '';  нет модели
+              });
+return  стрим  addTodo(todo: InTodo): Observable<InTodo> {
+                     return   this.httpCl.post<InTodo>('https://jsonplaceholder.typicode.com/todos', todo)
+в конструкторе компанента убираем private httpCl: HttpClient   вместо него ставим наш сервис
+
+в тс обращаемся к сервису вызывая метод  addTodo куда мы передаем
+this.todoServ.addTodo({
+            title: this.newPerTodoTitle,
+            completed: false
+        });
+и далее  this.todoServ.addTodo({
+                     title: this.newPerTodoTitle,
+                     completed: false
+                 });
+ удоляя работу с сервером ...this.httpCl.post<InTodo>('https://jsonplaceholder.typicode.com/todos', newTodo)
+
+далее переносим  fetchTodo  вырезаем стрим
+this.httpCl.get<InTodo[]>('https://jsonplaceholder.typicode.com/todos?_limit=2')
+добавляем и импортируем его  .pipe(delay(500));
+добавляем тип Observable<InTodo[]>
+
+далее в компаненте вызываем данный метод
+this.todoServ.fetchTodo()
+
+тоже для удоления
+в сервисе создаем метод remuveTodo(id: number): Observable <void> {
+          return  this.httpCl.delete<void>(`https://jsonplaceholder.typicode.com/todos/${id}`);
+      }
+в тс вместо this.httpCl.delete<void>(`https://jsonplaceholder.typicode.com/todos/${id}`);
+ставим
+
+
+
 68 удаление элементов
 оживляем кнопку <button class="btn btn-danger" (click)="remuveTodo(ngF.id)">Удалить</button>
 заводим метод в тс
